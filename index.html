@@ -225,7 +225,9 @@
           
           <div class="relative max-w-5xl mx-auto">
             <!-- Línea de Fondo (Timeline) -->
+            <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-white/10 -translate-x-1/2 rounded-full hidden md:block"></div>
             <!-- Línea de Progreso Animada -->
+            <div id="process-progress" class="absolute left-8 md:left-1/2 top-0 w-1 bg-primary -translate-x-1/2 rounded-full hidden md:block transition-all duration-[1s] ease-out h-0 shadow-[0_0_15px_rgba(84,141,123,0.6)]"></div>
 
             <!-- Paso 1: Diseño -->
             <div class="process-step relative flex flex-col md:flex-row items-center justify-between mb-24 group">

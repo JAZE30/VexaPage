@@ -158,9 +158,14 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("step-active");
-            updateProgressLine();
+          } else {
+            // Remove the exact class when the element leaves scrolling backwards (up)
+            if (entry.boundingClientRect.top > 0) {
+              entry.target.classList.remove("step-active");
+            }
           }
         });
+        updateProgressLine();
       },
       {
         rootMargin: "0px 0px -25% 0px",
@@ -189,6 +194,8 @@ document.addEventListener("DOMContentLoaded", () => {
           const height = iconTop - containerTop + 32;
           progressLine.style.height = `${Math.max(0, height)}px`;
         }
+      } else {
+        progressLine.style.height = "0px";
       }
     }
 
